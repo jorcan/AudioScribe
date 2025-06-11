@@ -1,0 +1,55 @@
+{
+  "name": "audioscribe",
+  "version": "1.0.0",
+  "description": "Una herramienta minimalista que convierte automáticamente el contenido hablado de tus archivos de video o audio en texto limpio y preciso",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish=never"
+  },
+  "keywords": [
+    "transcription",
+    "audio",
+    "video",
+    "gemini",
+    "ai"
+  ],
+  "author": "AudioScribe",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7"
+  },
+  "build": {
+    "appId": "com.audioscribe.app",
+    "productName": "AudioScribe",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules",
+      "node_modules/@google/**/*",
+      "node_modules/fluent-ffmpeg/**/*",
+      "node_modules/fs-extra/**/*"
+    ],
+    "linux": {
+      "target": "AppImage",
+      "category": "AudioVideo"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  }
+}

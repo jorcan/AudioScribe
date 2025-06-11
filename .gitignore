@@ -1,0 +1,11 @@
+node_modules/
+to_transcribe/
+dist/
+build/
+*.log
+.env
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+config.json
